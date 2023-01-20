@@ -33,7 +33,7 @@ Car::Car(char const* const manufacturerName, char const* const modelName, Perfor
      
 }
 
-Car::Car(Car const& o) {
+Car::Car& operator=(Car const& o) {
     manufacturer = o.manufacturer;
     model = o.model;
     zeroToSixtyNs = o.zeroToSixtyNs;
@@ -44,8 +44,8 @@ Car::Car(Car const& o) {
 }
 
 Car::~Car() {
-    delete manufacturer;
-    delete model;
+    delete[] manufacturer;
+    delete[] model;
 }
 
 char const* Car::getManufacturer() const {
