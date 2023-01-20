@@ -122,7 +122,7 @@ void reexamineDoors(DoorKind newDoorKind);
 
 
 int main() {
-    
+    /*
     cout << "Testing" << endl;
 
     Car* defaultCar = new Car();
@@ -149,9 +149,9 @@ int main() {
 
     cout << "BackseatDoors: " << (int) car->getBackseatDoors() << endl;
     cout << "SeatCount: " << (int) car->getSeatCount() << endl;
-    */
+    
     delete defaultCar;
     delete goodCar;
-
+*/
     return 0;
 }
