@@ -44,7 +44,6 @@ Car::Car(Car const& o) {
 }
 
 Car::~Car() {
-    cout << "deleted Car Instance" << endl;
     delete manufacturer;
     delete model;
 }
@@ -119,39 +118,3 @@ void reevaluateStats(PerformanceStats newStats);
 void recountSeats(uint8_t newSeatCount);
 void reexamineDoors(DoorKind newDoorKind);
 */
-
-
-int main() {
-    /*
-    cout << "Testing" << endl;
-
-    Car* defaultCar = new Car();
-    Car* goodCar = new Car("Honda","Civic", PerformanceStats(60,60,60), 4 , DoorKind(1));
-
-    Car* car = goodCar;
-    cout << "car stats output" << endl;
-    /*if (car->getModel() == nullptr) {
-        cout << "Manufacturer: NULL" << endl;
-    } else {
-        cout << "Manufacturer: " << car->getManufacturer() << endl;
-    }
-
-    if (car->getModel() == nullptr) {
-        cout << "Model: NULL" << endl;
-    } else {
-        cout << "Model: " << car->getModel() << endl;
-    }
-    
-    PerformanceStats stats = car->getStats();
-    cout << "ZeroToSixtyNs: " <<  stats.zeroToSixtyNs << endl;
-    cout << "HeadonDragCoeff: " << stats.headonDragCoeff << endl;
-    cout << "Horsepower: " << stats.horsepower << endl;
-
-    cout << "BackseatDoors: " << (int) car->getBackseatDoors() << endl;
-    cout << "SeatCount: " << (int) car->getSeatCount() << endl;
-    
-    delete defaultCar;
-    delete goodCar;
-*/
-    return 0;
-}
