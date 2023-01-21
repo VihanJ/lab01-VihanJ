@@ -60,7 +60,7 @@ Car::~Car() {
 
 char const* Car::getManufacturer() const {
     if (this->manufacturer == nullptr) {
-        return "NULL"; 
+        return nullptr; 
     }
     else {
         return this->manufacturer;  
@@ -69,7 +69,7 @@ char const* Car::getManufacturer() const {
 
 char const* Car::getModel() const {
     if (this->model == nullptr) {
-        return "NULL"; 
+        return nullptr; 
     }
     else {
         return this->model;  
@@ -130,6 +130,7 @@ void reexamineDoors(DoorKind newDoorKind);
 */
 
 int main() {
+    /*
     Car* defaultCar = new Car();
 
     Car* startingCar = new Car("Honda","Civic",PerformanceStats(10,11,12),4,None);
@@ -138,12 +139,12 @@ int main() {
 
     cout << startingCar << endl; 
     cout << testCar << endl; 
-    cout << testCar->getManufacturer() << endl;
+    //cout << testCar->getManufacturer() << endl;
     testCar->manufacturerChange("Dodge");
     cout << testCar->getManufacturer() << endl;
 
     testCar = defaultCar; 
     cout << testCar << endl;
     cout << testCar->getManufacturer() << endl;
-
+    */
 }
