@@ -32,15 +32,25 @@ Car::Car(char const* const manufacturerName, char const* const modelName, Perfor
     backseatDoors = backseatDoorDesign;
      
 }
+Car::Car(Car const& o) {
+    this->manufacturer = o.manufacturer;
+    this->model = o.model;
+    this->zeroToSixtyNs = o.zeroToSixtyNs;
+    this->headonDragCoeff = o.headonDragCoeff;
+    this->horsepower = o.horsepower;
+    this->backseatDoors = o.backseatDoors;
+    this->seatCount = o.seatCount;
+}
 
-Car::Car& operator=(Car const& o) {
-    manufacturer = o.manufacturer;
-    model = o.model;
-    zeroToSixtyNs = o.zeroToSixtyNs;
-    headonDragCoeff = o.headonDragCoeff;
-    horsepower = o.horsepower;
-    backseatDoors = o.backseatDoors;
-    seatCount = o.seatCount;
+Car& Car::operator=(Car const& o) {
+    this->manufacturer = o.manufacturer;
+    this->model = o.model;
+    this->zeroToSixtyNs = o.zeroToSixtyNs;
+    this->headonDragCoeff = o.headonDragCoeff;
+    this->horsepower = o.horsepower;
+    this->backseatDoors = o.backseatDoors;
+    this->seatCount = o.seatCount;
+    return *this;
 }
 
 Car::~Car() {
@@ -50,7 +60,7 @@ Car::~Car() {
 
 char const* Car::getManufacturer() const {
     if (this->manufacturer == nullptr) {
-        return nullptr; 
+        return "NULL"; 
     }
     else {
         return this->manufacturer;  
@@ -59,7 +69,7 @@ char const* Car::getManufacturer() const {
 
 char const* Car::getModel() const {
     if (this->model == nullptr) {
-        return nullptr; 
+        return "NULL"; 
     }
     else {
         return this->model;  
@@ -118,3 +128,22 @@ void reevaluateStats(PerformanceStats newStats);
 void recountSeats(uint8_t newSeatCount);
 void reexamineDoors(DoorKind newDoorKind);
 */
+
+int main() {
+    Car* defaultCar = new Car();
+
+    Car* startingCar = new Car("Honda","Civic",PerformanceStats(10,11,12),4,None);
+
+    Car* testCar = new Car(*startingCar); 
+
+    cout << startingCar << endl; 
+    cout << testCar << endl; 
+    cout << testCar->getManufacturer() << endl;
+    testCar->manufacturerChange("Dodge");
+    cout << testCar->getManufacturer() << endl;
+
+    testCar = defaultCar; 
+    cout << testCar << endl;
+    cout << testCar->getManufacturer() << endl;
+
+}
