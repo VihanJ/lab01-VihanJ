@@ -128,7 +128,7 @@ void reevaluateStats(PerformanceStats newStats);
 void recountSeats(uint8_t newSeatCount);
 void reexamineDoors(DoorKind newDoorKind);
 */
-
+/*
 int main() {
     /*
     Car* defaultCar = new Car();
@@ -146,5 +146,6 @@ int main() {
     testCar = defaultCar; 
     cout << testCar << endl;
     cout << testCar->getManufacturer() << endl;
-    */
-}
+    
+    return 0;
+}*/
