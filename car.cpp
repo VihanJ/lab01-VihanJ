@@ -33,8 +33,13 @@ Car::Car(char const* const manufacturerName, char const* const modelName, Perfor
      
 }
 Car::Car(Car const& o) {
-    this->manufacturer = o.manufacturer;
-    this->model = o.model;
+    this->manufacturer = new char[sizeof(o.manufacturer)]; //declare an array of the size of the array the pointer is pointing to
+    strcpy(manufacturer,o.manufacturer);
+    
+    
+    this->model = new char[sizeof(o.model)];
+    strcpy(model,o.model);
+
     this->zeroToSixtyNs = o.zeroToSixtyNs;
     this->headonDragCoeff = o.headonDragCoeff;
     this->horsepower = o.horsepower;
@@ -43,8 +48,19 @@ Car::Car(Car const& o) {
 }
 
 Car& Car::operator=(Car const& o) {
-    this->manufacturer = o.manufacturer;
-    this->model = o.model;
+    if (this == &o) {
+        return *this;
+    }
+    delete[] manufacturer;
+    delete[] model;
+    manufacturer = new char[sizeof(o.manufacturer)]; //declare an array of the size of the array the pointer is pointing to
+    strcpy(manufacturer,o.manufacturer);
+    
+
+    model = new char[sizeof(o.model)];
+    strcpy(model,o.model);
+    
+
     this->zeroToSixtyNs = o.zeroToSixtyNs;
     this->headonDragCoeff = o.headonDragCoeff;
     this->horsepower = o.horsepower;
